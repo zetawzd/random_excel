@@ -1,4 +1,6 @@
 Sub Random()
+
+'Set the range here as the sample frame that you need
 Dim RNG As Range
     Set RNG = Range("A7142:A7189")
 
@@ -7,11 +9,13 @@ Dim i As Integer
 Dim n As Integer
 Dim color As Long
 
+'Choose one of these colors by removing the ' so the selected ones will be highlighted in this color
 ' color = RGB(255, 255, 0) 'Yellow'
 color = RGB(0, 255, 0) 'Green'
 ' color = RGB(255, 0, 0) 'Red'
 ' color = RGB(0, 255, 255) 'Cyan'
 
+'Change the number here as the number of cells that you need to select
 n = 50
 
 If RNG.Cells.Count <= n Then
