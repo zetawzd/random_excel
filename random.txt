@@ -1,6 +1,6 @@
 Sub Random()
 Dim RNG As Range
-    Set RNG = Range("B2:P77")
+    Set RNG = Range("A1:J20")
 
 Dim randomCell As Long
 Dim i As Integer
@@ -12,12 +12,8 @@ n = 20
     
     Do
     randomCell = Int(Rnd * RNG.Cells.Count) + 1
-    Loop While IsEmpty(RNG.Cells(randomCell)) = True And RNG.Cells(randomCell).Interior.ColorIndex = xlNone
-
-    With RNG.Cells(randomCell)
-         .Select
-         .Interior.Color = vbYellow
-    End With
+    Loop While RNG.Cells(randomCell).Interior.ColorIndex <> xlNone
+    RNG.Cells(randomCell).Interior.Color = vbYellow
 
     Next i
 
