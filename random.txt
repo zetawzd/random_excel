@@ -1,20 +1,34 @@
 Sub Random()
 Dim RNG As Range
-    Set RNG = Range("A1:J20")
+    Set RNG = Range("A7142:A7189")
 
 Dim randomCell As Long
 Dim i As Integer
 Dim n As Integer
+Dim color As Long
 
-n = 20
+' color = RGB(255, 255, 0) 'Yellow'
+color = RGB(0, 255, 0) 'Green'
+' color = RGB(255, 0, 0) 'Red'
+' color = RGB(0, 255, 255) 'Cyan'
+
+n = 50
+
+If RNG.Cells.Count <= n Then
+RNG.Cells.Interior.color = color
+    
+    Else
     
     For i = 1 To n
     
     Do
     randomCell = Int(Rnd * RNG.Cells.Count) + 1
     Loop While RNG.Cells(randomCell).Interior.ColorIndex <> xlNone
-    RNG.Cells(randomCell).Interior.Color = vbYellow
+    
+    RNG.Cells(randomCell).Interior.color = color
 
     Next i
+    
+End If
 
 End Sub
